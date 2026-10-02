@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import  { useState, type ComponentType } from 'react';
 import type { SectionId } from '../../types';
 import { sections } from '../../data/sections';
 import { Window } from '../window/Window';
@@ -6,9 +6,14 @@ import { TopBar } from './TopBar';
 import { Terminal } from '../terminal/Terminal';
 import { AboutPage } from '../../pages/AboutPage';
 
+const sectionComponents: Partial<Record<SectionId, ComponentType>> = {
+    about: AboutPage,
+}
+
 export function DesktopLayout() {
     const [openSection, setOpenSection] = useState<SectionId | null>(null);
     const activeSection = sections.find(section => section.id === openSection);
+    const ActivePage = activeSection ? sectionComponents[activeSection.id] : null;
 
     return (
         <div className="min-h-screen bg-slate-900">
@@ -36,8 +41,8 @@ export function DesktopLayout() {
                 </div>
                 <div className="flex-1 flex justify-center items-center relative">
                 {activeSection && (
-                        <Window title={activeSection.windowTitle}>
-                            <AboutPage />
+                        <Window title={activeSection.windowTitle} onClose={() => setOpenSection(null)}>
+                            {ActivePage ? <ActivePage /> : <p>Página não encontrada.</p>}
                         </Window>
                 )}
 

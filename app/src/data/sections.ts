@@ -11,14 +11,14 @@ export const sections: Section[] = [
         showChip: true
     },
     {
-        id: 'contact',
-        command: 'contact',
-        windowTitle: 'contact.sh',
-        icon: Mail,
+        id: 'projects',
+        command: 'projects',
+        windowTitle: 'projects/',
+        icon: Folder,
         showShortcut: true,
         showChip: true
     },
-    {
+        {
         id: 'experience',
         command: 'experience',
         windowTitle: 'experience/',
@@ -27,10 +27,10 @@ export const sections: Section[] = [
         showChip: true
     },
     {
-        id: 'projects',
-        command: 'projects',
-        windowTitle: 'projects/',
-        icon: Folder,
+        id: 'contact',
+        command: 'contact',
+        windowTitle: 'contact.sh',
+        icon: Mail,
         showShortcut: true,
         showChip: true
     },
