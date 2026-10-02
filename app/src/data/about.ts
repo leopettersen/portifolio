@@ -8,10 +8,10 @@ export const about: About = {
         period: '2026 - 2029',
         college: 'PUC Minas',
         description: 'O curso aborda conteúdos como programação de computadores, linguagens de programação, estatística, lógica matemática aplicada a especificações de software, aspectos técnicos da engenharia de software como análise, modelagem, projeto, construção e teste de software, aspectos gerenciais da engenharia de software como gerência de projetos de software, gerência de configuração e evolução de software, garantia da qualidade dos processos de software, gestão da produção de software. Contempla também os aspectos relacionados ao trabalho em equipe, gestão de pessoas, comunicação com os diversos stakeholders envolvidos em um projeto e interação humano-computador. Aborda ainda as recentes tecnologias necessárias à construção de software como bancos de dados, redes de computadores, sistemas operacionais, sistemas distribuídos, segurança e tecnologias de dispositivos móveis e em nuvem.',
-        tags: ['Arquitetura de Software', 'Construção e Testes', 'Gestão de Projetos', 'Qualidade de Software', 'Cloud e Mobile']
+        tags: ['Arquitetura de Software', 'Cloud e Mobile', 'Construção e Testes', 'Gestão de Projetos', 'Qualidade de Software']
     },
     interestsDescription: 'Além do interesse por tecnologia e desenvolvimento de software, sou apaixonado por futebol e esportes em geral, cruzeirense fanático! Acompanho o futebol brasileiro e internacional, também gosto de natação, basquete e futebol americano.',
-    interestsTags: ['Futebol', 'Esportes', 'Tecnologia', 'Programação', 'Inovação'],
+    interestsTags: ['Esportes', 'Futebol', 'Inovação', 'Programação', 'Tecnologia'],
     goals: [
         {
             title: 'Participar de um WeMakeSoftware',
