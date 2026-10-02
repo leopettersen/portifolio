@@ -77,7 +77,6 @@ As principais ferramentas, frameworks e bibliotecas do projeto. As versões exat
 * **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
 * **Build Tool:** [Vite](https://vite.dev/)
 * **Estilização:** [Tailwind CSS](https://tailwindcss.com/)
-* **Roteamento:** [React Router](https://reactrouter.com/)
 * **Internacionalização (PT/EN):** [react-i18next](https://react.i18next.com/)
 
 ### 🗄️ Dados e Serviços
@@ -113,11 +112,16 @@ O projeto é uma **SPA (Single Page Application)** em React e TypeScript, constr
 
 ### Fluxo de navegação
 
-Terminal e ícones não têm lógicas separadas: os dois acionam a **mesma navegação do React Router**. Digitar `projects` ou clicar no ícone de Projects leva à mesma rota, e a janela correspondente abre sobre o desktop. O comando `guestbook` segue o mesmo caminho, mas não aparece nos ícones nem nos atalhos: só é listado na saída do `help`.
+Não há roteamento por URL: o site inteiro vive em uma única tela e a navegação é controlada por um **estado local do React**. O componente do desktop guarda qual seção está aberta no momento (ou nenhuma). Quando nenhuma seção está aberta, o terminal fica visível; quando há uma seção aberta, a janela correspondente é exibida sobre o desktop.
+
+Terminal e ícones não têm lógicas separadas: os dois alteram o **mesmo estado**. Digitar `projects` ou clicar no ícone de Projects tem o mesmo efeito, e a janela de Projects abre. Fechar a janela limpa o estado e devolve o terminal. O comando `guestbook` segue o mesmo caminho, mas não aparece nos ícones nem nos atalhos: só é listado na saída do `help`.
+
+A lista de seções (usada tanto nos ícones quanto nos comandos do terminal) fica centralizada em um único arquivo de dados, de modo que adicionar uma seção nova significa registrá-la nesse ponto e nos tipos do projeto.
 
 ### Decisões arquiteturais
 
 - **Sem back-end próprio:** o site só precisa de um banco para o guestbook e de envio de e-mail, e ambos são cobertos por serviços prontos.
+- **Navegação por estado local, sem biblioteca de rotas:** o site é uma tela única com janelas sobrepostas, então não há páginas distintas que justifiquem um roteador. Isso mantém o projeto mais simples e com menos dependências.
 - **Conteúdo fixo no código:** projetos e experiências mudam pouco, então ficam versionados junto ao projeto, sem depender de banco.
 - **Guestbook com publicação imediata:** a mensagem aparece assim que é enviada, com limites para evitar spam. O conteúdo inadequado é removido manualmente.
 - **Chaves públicas no front-end:** as chaves do Supabase e do EmailJS ficam no cliente por natureza, então a proteção do guestbook vem das regras de acesso configuradas no Supabase, e não de esconder a chave.
@@ -125,6 +129,7 @@ Terminal e ícones não têm lógicas separadas: os dois acionam a **mesma naveg
 
 ### Trade-offs
 
+- Como não há rotas, cada seção não tem URL própria: não é possível compartilhar um link direto para Projects, e o botão voltar do navegador não fecha janelas.
 - Atualizar um projeto ou experiência exige um novo deploy.
 - A moderação do guestbook é manual.
 - Sem back-end próprio, regras mais elaboradas (como limite de envios por visitante) ficam restritas ao que o Supabase permite configurar.
@@ -135,12 +140,12 @@ Terminal e ícones não têm lógicas separadas: os dois acionam a **mesma naveg
 flowchart LR
   V[Visitante] --> T[Terminal]
   V --> I[Icones]
-  T --> R[React Router]
-  I --> R
-  R --> J["Janelas: About, Projects, Experience, Contact"]
-  R --> G[Janela Guestbook]
+  T --> N["Estado de navegacao (Seção aberta)"]
+  I --> N
+  N --> J["Janelas: About, Projects, Experience, Contact"]
+  N --> G[Janela Guestbook]
   G <--> S[(Supabase)]
-  J -->|formulario de contato| E[EmailJS]
+  J -->|Formulário de contato| E[EmailJS]
 ```
 
 ---
@@ -242,16 +247,16 @@ portifolio/
 │   ├── src/
 │   │   ├── assets/          # Imagens e ícones usados no site
 │   │   ├── components/      # Componentes reutilizáveis
-│   │   │   ├── desktop/     # Barra superior, ícones e área de trabalho
+│   │   │   ├── desktop/     # Barra superior, ícones e área de trabalho (guarda a seção aberta)
 │   │   │   ├── terminal/    # Terminal e interpretador de comandos
 │   │   │   └── window/      # Janela base (barra de título, botão de fechar)
 │   │   ├── pages/           # Conteúdo de cada janela (About, Projects, Experience, Contact, Guestbook)
-│   │   ├── data/            # Projetos e experiências (dados fixos)
+│   │   ├── data/            # Seções, projetos e experiências (dados fixos)
 │   │   ├── i18n/            # Configuração e traduções (PT e EN)
 │   │   ├── services/        # Integrações externas (Supabase e EmailJS)
 │   │   ├── hooks/           # Hooks personalizados
 │   │   ├── types/           # Tipos TypeScript
-│   │   ├── App.tsx          # Componente raiz e definição das rotas
+│   │   ├── App.tsx          # Componente raiz
 │   │   └── main.tsx         # Ponto de entrada da aplicação
 │   ├── .env.example         # Modelo das variáveis de ambiente (sem valores reais)
 │   ├── Dockerfile           # Imagem do ambiente de desenvolvimento
@@ -290,7 +295,6 @@ Telas da home do portfólio, nos temas claro e escuro, nas versões desktop e mo
 * 📖 [Vite](https://vite.dev/guide/)
 * 📖 [TypeScript](https://www.typescriptlang.org/docs/)
 * 📖 [Tailwind CSS](https://tailwindcss.com/docs)
-* 📖 [React Router](https://reactrouter.com/)
 * 📖 [react-i18next](https://react.i18next.com/)
 * 📖 [Supabase](https://supabase.com/docs)
 * 📖 [EmailJS](https://www.emailjs.com/docs/)
