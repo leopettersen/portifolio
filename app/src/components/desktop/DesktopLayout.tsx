@@ -1,5 +1,5 @@
-import  { useState, type ComponentType } from 'react';
-import type { SectionId } from '../../types';
+import { useState, type ComponentType } from 'react';
+import type { SectionId, HistoryEntry } from '../../types';
 import { sections } from '../../data/sections';
 import { Window } from '../window/Window';
 import { TopBar } from './TopBar';
@@ -12,14 +12,44 @@ const sectionComponents: Partial<Record<SectionId, ComponentType>> = {
 
 export function DesktopLayout() {
     const [openSection, setOpenSection] = useState<SectionId | null>(null);
+    const [history, setHistory] = useState<HistoryEntry[]>([]);
+
     const activeSection = sections.find(section => section.id === openSection);
     const ActivePage = activeSection ? sectionComponents[activeSection.id] : null;
 
+    function addToHistory(command: string, output: string) {
+        setHistory(prev => [...prev, { command, output }]);
+    }
+
+    function runCommand(rawCommand: string) {
+        const command = rawCommand.trim().toLowerCase();
+        if (!command) return;
+
+        const section = sections.find((s) => s.command === command);
+
+        if (section) {
+            addToHistory(rawCommand, `Abrindo seção: ${section.windowTitle}`);
+            setOpenSection(section.id);
+        } else if (command === 'close') {
+            addToHistory(rawCommand, 'Fechando seção atual.');
+            setOpenSection(null);
+        } else if (command === 'clear') {
+            addToHistory(rawCommand, 'Limpando histórico.');
+            setHistory([]);
+        } else if (command === 'help') {
+            addToHistory(rawCommand, 'Comandos disponíveis: ' + sections.map((s) => s.command).join(', ') + ', clear, close');
+            setOpenSection(null);
+        } else {
+            addToHistory(rawCommand, `Comando não encontrado: "${rawCommand}"`);
+            setOpenSection(null);
+        }
+    }
+
     return (
-        <div className="min-h-screen bg-slate-900">
+        <div className="h-screen w-full overflow-hidden bg-slate-900 flex flex-col">
             <TopBar />
 
-            <div className="flex h-[calc(100vh-2rem)]">
+            <div className="flex-1 flex overflow-hidden">
                 <div className="w-24 border-r border-slate-800/60 flex flex-col items-center py-4 gap-4 justify-center">
                     {sections
                     .filter(section => section.showShortcut)
@@ -39,17 +69,21 @@ export function DesktopLayout() {
                         </button>
                     ))}
                 </div>
-                <div className="flex-1 flex justify-center items-center relative">
-                {activeSection && (
-                        <Window title={activeSection.windowTitle} onClose={() => setOpenSection(null)}>
+
+                <div className="flex-1 flex justify-center items-center relative overflow-hidden">
+                    {activeSection && (
+                        <Window 
+                            title={activeSection.windowTitle} 
+                            onClose={() => setOpenSection(null)}
+                            onCommand={runCommand} // <-- Ligação feita!
+                        >
                             {ActivePage ? <ActivePage /> : <p>Página não encontrada.</p>}
                         </Window>
-                )}
+                    )}
 
-                {!activeSection && (
-                    <Terminal />
-                )}
-
+                    {!activeSection && (
+                        <Terminal history={history} onCommand={runCommand} />
+                    )}
                 </div>
             </div>
         </div>

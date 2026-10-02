@@ -32,3 +32,8 @@ export interface About {
     interestsTags: string[];
     goals: Goal[];
 }
+
+export interface HistoryEntry {
+  command: string;
+  output: string;
+}
