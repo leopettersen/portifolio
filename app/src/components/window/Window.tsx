@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react';
+import { CommandPrompt } from '../terminal/CommandPrompt';
 
 export interface WindowProps {
     title: string;
     children: ReactNode;
     onClose: () => void;
+    onCommand: (command: string) => void;
 }
 
-export function Window({ title, children, onClose }: WindowProps) {
+export function Window({ title, children, onClose, onCommand }: WindowProps) {
   return (
     <div className="w-[60%] max-h-[calc(100vh-6rem)] shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 rounded-lg flex flex-col text-zinc-100 font-mono">
       
@@ -25,6 +27,13 @@ export function Window({ title, children, onClose }: WindowProps) {
       </div>
       <div className="flex-1 min-h-0 overflow-y-auto p-8">
         {children}
+      </div>
+      <div className="shrink-0 flex justify-between items-center px-4 py-3 bg-slate-950 border-t border-slate-800/60 rounded-b-lg">
+        <CommandPrompt onSubmit={onCommand} />
+        
+        <p className="text-xs text-slate-500 hidden sm:block">
+          digite <span className="text-slate-400">close</span> para fechar
+        </p>
       </div>
     </div>
   );
