@@ -37,3 +37,14 @@ export interface HistoryEntry {
   command: string;
   output: string;
 }
+
+export type WorkModel = 'onsite' | 'hybrid' | 'remote';
+
+export interface Experience {
+    organization: string;
+    period: string;
+    experiencePosition: string;
+    workModel: WorkModel;
+    description: string;
+    skills: string[];
+}

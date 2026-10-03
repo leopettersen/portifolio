@@ -5,9 +5,11 @@ import { Window } from '../window/Window';
 import { TopBar } from './TopBar';
 import { Terminal } from '../terminal/Terminal';
 import { AboutPage } from '../../pages/AboutPage';
+import { ExperiencePage } from '../../pages/ExperiencePage';
 
 const sectionComponents: Partial<Record<SectionId, ComponentType>> = {
     about: AboutPage,
+    experience: ExperiencePage
 }
 
 export function DesktopLayout() {
