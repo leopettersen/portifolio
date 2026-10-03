@@ -1,4 +1,4 @@
-import { useRef, useState, type KeyboardEvent } from 'react';
+import { useRef, useState, useEffect, type KeyboardEvent } from 'react';
 
 export interface CommandPromptProps {
     onSubmit: (command: string) => void;
@@ -15,12 +15,21 @@ export function CommandPrompt({ onSubmit }: CommandPromptProps) {
         }
     }
 
+    useEffect(() => {
+        function handleGlobalClick() {
+            inputRef.current?.focus();
+        }
+
+        document.addEventListener('click', handleGlobalClick);
+
+        return () => {
+            document.removeEventListener('click', handleGlobalClick);
+        };
+    }, []);
+
     return (
 
-        <div 
-            className="flex items-center gap-2 cursor-text" 
-            onClick={() => inputRef.current?.focus()}
-        >
+        <div className="flex items-center gap-2 cursor-text">
             <span className="text-blue-500">guest@os:~$</span>
             <input
                 onKeyDown={handleKeyDown}
