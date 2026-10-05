@@ -48,3 +48,12 @@ export interface Experience {
     description: string;
     skills: string[];
 }
+
+export interface Project {
+    name: string;
+    date: string;
+    description: string;
+    tecnologies: string[];
+    repoLink: string;
+    image?: string;
+}

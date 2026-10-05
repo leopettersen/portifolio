@@ -241,7 +241,8 @@ As variáveis de ambiente (`VITE_*`, listadas em [Instalação e Execução](#-i
 portifolio/
 ├── .github/                 # Configurações do GitHub (templates, workflows)
 ├── docs/
-│   └── images/              # Imagens dos protótipos (Figma) e GIFs do README
+│   └── images/              
+|       └── wireframes/      # Imagens dos protótipos (Figma) e GIFs do README
 ├── app/                     # Aplicação (projeto Vite)
 │   ├── public/              # Arquivos estáticos servidos como estão (favicon etc.)
 │   ├── src/
