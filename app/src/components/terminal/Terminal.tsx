@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { HistoryEntry } from '../../types';
 import { CommandPrompt } from './CommandPrompt';
 
@@ -8,6 +9,7 @@ export interface TerminalProps {
 }
 
 export function Terminal({ history, onCommand }: TerminalProps) {
+  const { t } = useTranslation();
   const historyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,37 +45,27 @@ export function Terminal({ history, onCommand }: TerminalProps) {
           </h1>
 
           <h2 className="font-medium text-slate-300">
-            Estudante de Engenharia de Software
+            {t('terminal.role')}
           </h2>
 
           <h2 className="text-slate-400">
-            PUC Minas
+            {t('terminal.university')}
           </h2>
 
           <p className="text-slate-500 mt-6">
-            digite{' '}
+            {t('terminal.typeMessage')}{' '}
             <span className="bg-slate-800 px-1.5 py-0.5 rounded text-slate-300">
-              help
+              {t('terminal.typeCommand')}
             </span>{' '}
-            para ver os comandos
+            {t('terminal.toSeeCommands')}
           </p>
 
           <div className="flex flex-wrap gap-4 mt-3">
-            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">
-              [ about ]
-            </span>
-            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">
-              [ projects ]
-            </span>
-            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">
-              [ experience ]
-            </span>
-            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">
-              [ contact ]
-            </span>
-            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">
-              [ help ]
-            </span>
+            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">[ about ]</span>
+            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">[ projects ]</span>
+            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">[ experience ]</span>
+            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">[ contact ]</span>
+            <span className="border border-slate-700/50 px-3 py-1 rounded-md text-sm text-slate-400">[ help ]</span>
           </div>
         </div>
 
@@ -82,12 +74,8 @@ export function Terminal({ history, onCommand }: TerminalProps) {
             {history.map((entry, index) => (
               <div key={index}>
                 <div>
-                  <span className="text-blue-500">
-                    guest@os:~$
-                  </span>{' '}
-                  <span className="text-slate-200">
-                    {entry.command}
-                  </span>
+                  <span className="text-blue-500">guest@os:~$</span>{' '}
+                  <span className="text-slate-200">{entry.command}</span>
                 </div>
                 <div className="text-slate-400 mt-1 whitespace-pre-line">
                   {entry.output}

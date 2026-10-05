@@ -1,14 +1,12 @@
-import type { WorkModel } from '../types';
-import { experiences } from '../data/experiences';
+import { useTranslation } from 'react-i18next';
+import type { Experience } from '../types';
 import { Tag } from '../components/ui/Tag';
 
-const workModelLabels: Record<WorkModel, string> = {
-    onsite: 'Presencial',
-    hybrid: 'Híbrido',
-    remote: 'Remoto',
-};
-
 export function ExperiencePage() {
+    const { t } = useTranslation();
+    
+    const experiences = t('experiences', { returnObjects: true }) as Experience[];
+
     return (
         <div className="flex flex-col gap-6">
 
@@ -31,7 +29,7 @@ export function ExperiencePage() {
                         </h2>
 
                         <span className="bg-slate-700/60 px-2 py-1 rounded-md text-sm text-slate-400">
-                            {workModelLabels[experience.workModel]}
+                            {t(`workModels.${experience.workModel}`)}
                         </span>
                     </div>
 

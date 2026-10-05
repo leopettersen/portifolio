@@ -1,9 +1,13 @@
 import { Code, ArrowUpRight } from 'lucide-react';
-
-import { projects } from '../data/projects';
+import { useTranslation } from 'react-i18next';
+import type { Project } from '../types';
 import { Tag } from '../components/ui/Tag';
 
 export function ProjectsPage() {
+    const { t } = useTranslation();
+    
+    const projects = t('projects', { returnObjects: true }) as Project[];
+
     return (
         <div className="flex flex-col gap-6">
 
@@ -42,7 +46,7 @@ export function ProjectsPage() {
                             <img src={project.image} alt={project.name} className="w-full aspect-video object-cover rounded-lg mt-4" />
                         ) : (
                             <div className="w-full aspect-video rounded-lg mt-4 flex items-center justify-center bg-slate-700/30 text-slate-500">
-                                Imagem em breve
+                                {t('projectUI.imageComingSoon', 'Imagem em breve')}
                             </div>
                         )}
 

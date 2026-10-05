@@ -1,5 +1,7 @@
 import type {LucideIcon} from 'lucide-react';
 
+export type Language = 'pt' | 'en';
+
 export type SectionId = 'about' | 'experience' | 'contact' | 'projects' | 'guestbook';
 
 export interface Section {
