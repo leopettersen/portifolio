@@ -53,7 +53,7 @@ export interface Project {
     name: string;
     date: string;
     description: string;
-    tecnologies: string[];
+    technologies: string[];
     repoLink: string;
     image?: string;
 }
