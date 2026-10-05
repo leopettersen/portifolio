@@ -16,9 +16,19 @@ export function CommandPrompt({ onSubmit }: CommandPromptProps) {
     }
 
     useEffect(() => {
-        function handleGlobalClick() {
+        const handleGlobalClick = (event: MouseEvent) => {
+            const target = event.target;
+
+            if (target instanceof HTMLElement) {
+                const interactiveElement = target.closest('input, textarea, button, a');
+
+                if (interactiveElement) {
+                    return;
+                }
+            }
+
             inputRef.current?.focus();
-        }
+        };
 
         document.addEventListener('click', handleGlobalClick);
 
