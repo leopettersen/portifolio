@@ -7,11 +7,13 @@ import { Terminal } from '../terminal/Terminal';
 import { AboutPage } from '../../pages/AboutPage';
 import { ExperiencePage } from '../../pages/ExperiencePage';
 import { ProjectsPage } from '../../pages/ProjectsPage';
+import { ContactPage } from '../../pages/ContactPage';
 
 const sectionComponents: Partial<Record<SectionId, ComponentType>> = {
     about: AboutPage,
     experience: ExperiencePage,
-    projects: ProjectsPage
+    projects: ProjectsPage,
+    contact: ContactPage
 }
 
 export function DesktopLayout() {

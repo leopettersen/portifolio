@@ -57,3 +57,10 @@ export interface Project {
     repoLink: string;
     image?: string;
 }
+
+export interface ContactLink {
+    name: string;
+    link: string;
+    text: string;
+    icon: LucideIcon;
+}
