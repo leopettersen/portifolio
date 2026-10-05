@@ -1,4 +1,5 @@
 import { about } from '../data/about'; 
+import { Tag } from '../components/ui/Tag';
 
 export function AboutPage() {
     return (
@@ -16,7 +17,7 @@ export function AboutPage() {
                 <p className="text-slate-400">{about.education.description}</p>
                 <div className="flex flex-wrap gap-2 mt-2">
                     {about.education.tags.map((tag) => (
-                        <span key={tag} className="bg-slate-700/60 px-2 py-1 rounded-md text-sm text-slate-400">{tag}</span>
+                        <Tag key={tag}>{tag}</Tag>
                     ))}
                 </div>
             </div>
@@ -25,7 +26,7 @@ export function AboutPage() {
                 <p className="text-slate-400">{about.interestsDescription}</p>
                 <div className="flex flex-wrap gap-2 mt-2">
                     {about.interestsTags.map((tag) => (
-                        <span key={tag} className="bg-slate-700/60 px-2 py-1 rounded-md text-sm text-slate-400">{tag}</span>
+                        <Tag key={tag}>{tag}</Tag>
                     ))}
                 </div>
             </div>

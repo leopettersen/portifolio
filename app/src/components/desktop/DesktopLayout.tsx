@@ -6,10 +6,12 @@ import { TopBar } from './TopBar';
 import { Terminal } from '../terminal/Terminal';
 import { AboutPage } from '../../pages/AboutPage';
 import { ExperiencePage } from '../../pages/ExperiencePage';
+import { ProjectsPage } from '../../pages/ProjectsPage';
 
 const sectionComponents: Partial<Record<SectionId, ComponentType>> = {
     about: AboutPage,
-    experience: ExperiencePage
+    experience: ExperiencePage,
+    projects: ProjectsPage
 }
 
 export function DesktopLayout() {

@@ -1,5 +1,6 @@
 import type { WorkModel } from '../types';
 import { experiences } from '../data/experiences';
+import { Tag } from '../components/ui/Tag';
 
 const workModelLabels: Record<WorkModel, string> = {
     onsite: 'Presencial',
@@ -40,9 +41,7 @@ export function ExperiencePage() {
 
                     <div className="flex flex-wrap gap-2 mt-2">
                         {experience.skills.map((skill) => (
-                            <span key={skill} className="bg-slate-700/60 px-2 py-1 rounded-md text-sm text-slate-400">
-                                {skill}
-                            </span>
+                            <Tag key={skill}>{skill}</Tag>
                         ))}
                     </div>
 

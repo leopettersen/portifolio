@@ -250,6 +250,7 @@ portifolio/
 │   │   ├── components/      # Componentes reutilizáveis
 │   │   │   ├── desktop/     # Barra superior, ícones e área de trabalho (guarda a seção aberta)
 │   │   │   ├── terminal/    # Terminal e interpretador de comandos
+│   │   │   └── ui/          # Elementos da interface que são utilizados frequentemente
 │   │   │   └── window/      # Janela base (barra de título, botão de fechar)
 │   │   ├── pages/           # Conteúdo de cada janela (About, Projects, Experience, Contact, Guestbook)
 │   │   ├── data/            # Seções, projetos e experiências (dados fixos)
