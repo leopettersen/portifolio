@@ -1,6 +1,13 @@
 import { useState, type FormEvent } from 'react';
+import emailjs from '@emailjs/browser';
 
 import { contacts } from '../data/contacts';
+
+const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 interface FormErrors {
     name?: string;
@@ -14,6 +21,7 @@ export function ContactPage() {
     const [message, setMessage] = useState('');
 
     const [errors, setErrors] = useState<FormErrors>({});
+    const [status, setStatus] = useState<FormStatus>('idle');
 
     function validate(): FormErrors {
         const newErrors: FormErrors = {};
@@ -24,7 +32,7 @@ export function ContactPage() {
 
         if (!email.trim()) {
             newErrors.email = 'Informe seu e-mail.';
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
             newErrors.email = 'E-mail inválido.';
         }
 
@@ -37,7 +45,7 @@ export function ContactPage() {
         return newErrors;
     }
 
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
         const validationErrors = validate();
@@ -45,12 +53,34 @@ export function ContactPage() {
         setErrors(validationErrors);
 
         if (Object.keys(validationErrors).length > 0) {
+            setStatus('idle');
             return;
         }
 
-        console.log(name);
-        console.log(email);
-        console.log(message);
+        setStatus('sending');
+
+        try {
+            await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    name,
+                    email: email.trim(),
+                    message,
+                },
+                publicKey
+            );
+
+            setStatus('success');
+
+            setName('');
+            setEmail('');
+            setMessage('');
+            setErrors({});
+        } catch (error) {
+            setStatus('error');
+            console.error(error);
+        }
     }
 
     return (
@@ -91,16 +121,7 @@ export function ContactPage() {
                             Nome
                         </label>
 
-                        <input
-                            id="name"
-                            type="text"
-                            value={name}
-                            onChange={(event) => setName(event.target.value)}
-                            placeholder="Seu nome"
-                            aria-invalid={!!errors.name}
-                            aria-describedby={errors.name ? 'name-error' : undefined}
-                            className={`w-full bg-slate-800/60 border ${errors.name ? 'border-red-400' : 'border-slate-700/60'} rounded-md px-3 py-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-slate-500`}
-                        />
+                        <input id="name" type="text" value={name} onChange={(event) => setName(event.target.value)} placeholder="Seu nome" aria-invalid={!!errors.name} aria-describedby={errors.name ? 'name-error' : undefined} className={`w-full bg-slate-800/60 border ${errors.name ? 'border-red-400' : 'border-slate-700/60'} rounded-md px-3 py-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-slate-500`} />
 
                         {errors.name && (
                             <p id="name-error" className="text-sm text-red-400">
@@ -114,16 +135,7 @@ export function ContactPage() {
                             E-mail
                         </label>
 
-                        <input
-                            id="email"
-                            type="email"
-                            value={email}
-                            onChange={(event) => setEmail(event.target.value)}
-                            placeholder="seu@email.com"
-                            aria-invalid={!!errors.email}
-                            aria-describedby={errors.email ? 'email-error' : undefined}
-                            className={`w-full bg-slate-800/60 border ${errors.email ? 'border-red-400' : 'border-slate-700/60'} rounded-md px-3 py-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-slate-500`}
-                        />
+                        <input id="email" type="email" value={email} onChange={(event) => setEmail(event.target.value)} placeholder="seu@email.com" aria-invalid={!!errors.email} aria-describedby={errors.email ? 'email-error' : undefined} className={`w-full bg-slate-800/60 border ${errors.email ? 'border-red-400' : 'border-slate-700/60'} rounded-md px-3 py-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-slate-500`} />
 
                         {errors.email && (
                             <p id="email-error" className="text-sm text-red-400">
@@ -137,16 +149,7 @@ export function ContactPage() {
                             Mensagem
                         </label>
 
-                        <textarea
-                            id="message"
-                            value={message}
-                            onChange={(event) => setMessage(event.target.value)}
-                            placeholder="Digite sua mensagem..."
-                            rows={5}
-                            aria-invalid={!!errors.message}
-                            aria-describedby={errors.message ? 'message-error' : undefined}
-                            className={`w-full bg-slate-800/60 border ${errors.message ? 'border-red-400' : 'border-slate-700/60'} rounded-md px-3 py-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-slate-500 resize-none`}
-                        />
+                        <textarea id="message" value={message} onChange={(event) => setMessage(event.target.value)} placeholder="Digite sua mensagem..." rows={5} aria-invalid={!!errors.message} aria-describedby={errors.message ? 'message-error' : undefined} className={`w-full bg-slate-800/60 border ${errors.message ? 'border-red-400' : 'border-slate-700/60'} rounded-md px-3 py-2 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-slate-500 resize-none`} />
 
                         {errors.message && (
                             <p id="message-error" className="text-sm text-red-400">
@@ -155,9 +158,21 @@ export function ContactPage() {
                         )}
                     </div>
 
-                    <button type="submit" className="self-start border border-slate-700/60 px-4 py-2 rounded-md text-sm text-slate-400 hover:text-slate-200 hover:border-slate-500 transition-colors">
-                        Enviar mensagem
+                    <button type="submit" disabled={status === 'sending'} className="self-start border border-slate-700/60 px-4 py-2 rounded-md text-sm text-slate-400 hover:text-slate-200 hover:border-slate-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                        {status === 'sending' ? 'Enviando...' : 'Enviar mensagem'}
                     </button>
+
+                    {status === 'success' && (
+                        <p role="status" className="text-sm text-green-400">
+                            Mensagem enviada! Obrigado pelo contato.
+                        </p>
+                    )}
+
+                    {status === 'error' && (
+                        <p role="status" className="text-sm text-red-400">
+                            Não foi possível enviar. Tente novamente ou use um dos contatos acima.
+                        </p>
+                    )}
 
                 </form>
 
