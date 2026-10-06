@@ -52,11 +52,11 @@ export function DesktopLayout() {
     }
 
     return (
-        <div className="h-screen w-full overflow-hidden bg-slate-900 flex flex-col">
+        <div className="h-[100dvh] w-full overflow-hidden bg-slate-900 flex flex-col">
             <TopBar />
 
-            <div className="flex-1 flex overflow-hidden">
-                <div className="w-24 border-r border-slate-800/60 flex flex-col items-center py-4 gap-4 justify-center">
+            <div className="flex-1 flex flex-col-reverse md:flex-row overflow-hidden">
+                <div className="w-full md:w-24 flex flex-row md:flex-col items-center justify-around md:justify-center gap-4 py-2 md:py-4 border-t md:border-t-0 md:border-r border-slate-800/60">
                     {sections
                     .filter(section => section.showShortcut)
                     .map(section => (
@@ -76,7 +76,7 @@ export function DesktopLayout() {
                     ))}
                 </div>
 
-                <div className="flex-1 flex justify-center items-center relative overflow-hidden">
+                <div className="flex-1 flex justify-center items-center relative overflow-hidden p-3 md:p-0">
                     {activeSection && (
                         <Window 
                             title={activeSection.windowTitle} 

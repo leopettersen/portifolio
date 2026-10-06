@@ -23,7 +23,7 @@ export function Terminal({ history, onCommand }: TerminalProps) {
   }, [history]);
 
   return (
-    <div className="w-[50%] max-h-[80vh] shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 rounded-lg flex flex-col text-zinc-100 font-mono overflow-hidden">
+    <div className="w-full md:w-1/2 max-h-[80vh] shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 rounded-lg flex flex-col text-zinc-100 font-mono overflow-hidden">
 
       <div className="shrink-0 h-12 relative flex items-center px-4 bg-slate-950 border-b border-slate-800/60">
         <div className="flex gap-2">
@@ -37,7 +37,7 @@ export function Terminal({ history, onCommand }: TerminalProps) {
         </span>
       </div>
 
-      <div className="flex flex-col min-h-0 p-8 overflow-hidden">
+      <div className="flex flex-col min-h-0 p-4 md:p-8 overflow-hidden">
 
         <div className="shrink-0">
           <h1 className="text-lg font-bold">
