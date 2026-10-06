@@ -18,7 +18,7 @@ export function ProjectsPage() {
 
                         <div className="absolute -left-[2.35rem] top-6 w-3 h-3 rounded-full bg-slate-500 border-2 border-slate-900"></div>
 
-                        <div className="flex items-baseline justify-between gap-4">
+                        <div className="flex flex-wrap items-baseline justify-between gap-2 md:gap-4">
 
                             <div className="flex items-baseline gap-3">
 
@@ -50,7 +50,7 @@ export function ProjectsPage() {
                             </div>
                         )}
 
-                        <div className="flex items-center justify-between gap-4 mt-2">
+                        <div className="flex flex-col items-start gap-3 mt-2 md:flex-row md:items-center md:justify-between">
 
                             <div className="flex flex-wrap gap-2">
                                 {project.technologies.map((technology) => (

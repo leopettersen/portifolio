@@ -13,7 +13,7 @@ export function ExperiencePage() {
             {experiences.map((experience) => (
                 <div key={experience.organization} className="flex flex-col gap-2 bg-slate-800/60 p-4 rounded-lg">
 
-                    <div className="flex items-baseline justify-between gap-4">
+                    <div className="flex flex-wrap items-baseline justify-between gap-2 md:gap-4">
                         <h1 className="text-xl font-bold">
                             {experience.organization}
                         </h1>
@@ -23,7 +23,7 @@ export function ExperiencePage() {
                         </span>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                         <h2 className="text-lg font-semibold">
                             {experience.experiencePosition}
                         </h2>

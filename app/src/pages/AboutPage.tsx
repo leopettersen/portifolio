@@ -15,7 +15,7 @@ export function AboutPage() {
             </div>
             
             <div className="flex flex-col gap-2 bg-slate-800/60 p-4 rounded-lg">
-                <div className="flex items-baseline justify-between gap-4">
+                <div className="flex flex-wrap items-baseline justify-between gap-2 md:gap-4">
                     <h1 className="text-xl font-bold">{t('about.sections.education', 'Educação')}</h1>
                     <span className="text-sm font-semibold text-slate-400">{about.education.period}</span>
                 </div>
