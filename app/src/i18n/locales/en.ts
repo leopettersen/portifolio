@@ -122,5 +122,12 @@ export const en: typeof pt = {
       messageRequired: 'Please enter a message.',
       messageMinLength: 'Message must be at least 10 characters long.'
     }
+  },
+  guestbook: {
+    loading: 'Loading...',
+    loadingMore: 'Loading...',
+    error: 'Could not load the messages.',
+    empty: 'Be the first to leave a message!',
+    loadMore: 'Load more',
   }
 };

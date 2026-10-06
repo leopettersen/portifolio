@@ -1,11 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Language } from '../../types/';
+import { localeMap } from '../../i18n/localeMap';
 
-const localeMap: Record<Language, string> = {
-    pt: 'pt-BR',
-    en: 'en-US',
-};
 
 export function Clock() {
     const { i18n } = useTranslation();

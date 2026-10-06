@@ -121,5 +121,12 @@ export const pt = {
       messageRequired: 'Informe sua mensagem.',
       messageMinLength: 'A mensagem deve ter pelo menos 10 caracteres.'
     }
+  },
+  guestbook: {
+    loading: 'Carregando...',
+    loadingMore: 'Carregando...',
+    error: 'Não foi possível carregar as mensagens.',
+    empty: 'Seja o primeiro a deixar uma mensagem!',
+    loadMore: 'Carregar mais',
   }
 };

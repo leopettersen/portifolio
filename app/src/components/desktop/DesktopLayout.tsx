@@ -9,12 +9,14 @@ import { AboutPage } from '../../pages/AboutPage';
 import { ExperiencePage } from '../../pages/ExperiencePage';
 import { ProjectsPage } from '../../pages/ProjectsPage';
 import { ContactPage } from '../../pages/ContactPage';
+import { GuestbookPage } from '../../pages/GuestbookPage';
 
-const sectionComponents: Partial<Record<SectionId, ComponentType>> = {
+const sectionComponents: Record<SectionId, ComponentType> = {
     about: AboutPage,
     experience: ExperiencePage,
     projects: ProjectsPage,
-    contact: ContactPage
+    contact: ContactPage,
+    guestbook: GuestbookPage
 }
 
 export function DesktopLayout() {
