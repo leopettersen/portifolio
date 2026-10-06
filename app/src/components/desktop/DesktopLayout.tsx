@@ -1,4 +1,5 @@
 import { useState, type ComponentType } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { SectionId, HistoryEntry } from '../../types';
 import { sections } from '../../data/sections';
 import { Window } from '../window/Window';
@@ -17,6 +18,7 @@ const sectionComponents: Partial<Record<SectionId, ComponentType>> = {
 }
 
 export function DesktopLayout() {
+    const { t } = useTranslation();
     const [openSection, setOpenSection] = useState<SectionId | null>(null);
     const [history, setHistory] = useState<HistoryEntry[]>([]);
 
@@ -34,19 +36,21 @@ export function DesktopLayout() {
         const section = sections.find((s) => s.command === command);
 
         if (section) {
-            addToHistory(rawCommand, `Abrindo seção: ${section.windowTitle}`);
+            addToHistory(rawCommand, t('terminal.openingSection', { title: section.windowTitle }));
             setOpenSection(section.id);
         } else if (command === 'close') {
-            addToHistory(rawCommand, 'Fechando seção atual.');
+            addToHistory(rawCommand, t('terminal.closingSection'));
             setOpenSection(null);
         } else if (command === 'clear') {
-            addToHistory(rawCommand, 'Limpando histórico.');
+            addToHistory(rawCommand, t('terminal.clearingHistory'));
             setHistory([]);
         } else if (command === 'help') {
-            addToHistory(rawCommand, 'Comandos disponíveis: ' + sections.map((s) => s.command).join(', ') + ', clear, close');
+            addToHistory(rawCommand, t('terminal.availableCommands', {
+                commands: sections.map((s) => s.command).join(', ') + ', clear, close'
+            }));
             setOpenSection(null);
         } else {
-            addToHistory(rawCommand, `Comando não encontrado: "${rawCommand}"`);
+            addToHistory(rawCommand, t('terminal.commandNotFound', { command: rawCommand }));
             setOpenSection(null);
         }
     }
@@ -83,7 +87,7 @@ export function DesktopLayout() {
                             onClose={() => setOpenSection(null)}
                             onCommand={runCommand} // <-- Ligação feita!
                         >
-                            {ActivePage ? <ActivePage /> : <p>Página não encontrada.</p>}
+                            {ActivePage ? <ActivePage /> : <p>{t('window.pageNotFound')}</p>}
                         </Window>
                     )}
 

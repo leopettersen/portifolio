@@ -9,8 +9,18 @@ export const en: typeof pt = {
     typeMessage: 'type',
     typeCommand: 'help',
     toSeeCommands: 'to see available commands',
+    openingSection: 'Opening section: {{title}}',
+    closingSection: 'Closing current section.',
+    clearingHistory: 'Clearing history.',
+    availableCommands: 'Available commands: {{commands}}',
+    commandNotFound: 'Command not found: "{{command}}"',
   },
-  about: {
+  window: {
+    back: 'Back',
+    pageNotFound: 'Page not found.',
+    closeHint: 'type <1>{{command}}</1> to close'
+  },
+    about: {
     sections: {
       education: 'Education',
       interests: 'Interests',

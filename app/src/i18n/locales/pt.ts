@@ -8,6 +8,16 @@ export const pt = {
     typeMessage: 'digite',
     typeCommand: 'help',
     toSeeCommands: 'para ver os comandos',
+    openingSection: 'Abrindo seção: {{title}}',
+    closingSection: 'Fechando seção atual.',
+    clearingHistory: 'Limpando histórico.',
+    availableCommands: 'Comandos disponíveis: {{commands}}',
+    commandNotFound: 'Comando não encontrado: "{{command}}"',
+  },
+  window: {
+    back: 'Voltar',
+    pageNotFound: 'Página não encontrada.',
+    closeHint: 'digite <1>{{command}}</1> para fechar'
   },
   about: {
     sections: {
