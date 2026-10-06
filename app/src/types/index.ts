@@ -66,3 +66,10 @@ export interface ContactLink {
     text: string;
     icon: LucideIcon;
 }
+
+export interface GuestbookMessage {
+    id: number;
+    name: string;
+    message: string;
+    created_at: string;
+}
