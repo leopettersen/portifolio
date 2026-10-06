@@ -32,7 +32,7 @@ export function TopBar() {
 
                     <button
                         onClick={() => i18n.changeLanguage('pt')}
-                        className={i18n.resolvedLanguage === 'pt' ? 'text-zinc-100' : 'text-zinc-500'}
+                        className={i18n.resolvedLanguage === 'pt' ? 'text-zinc-100 cursor-pointer' : 'text-zinc-500 cursor-pointer'}
                     >
                         PT
                     </button>
@@ -43,7 +43,7 @@ export function TopBar() {
 
                     <button
                         onClick={() => i18n.changeLanguage('en')}
-                        className={i18n.resolvedLanguage === 'en' ? 'text-zinc-100' : 'text-zinc-500'}
+                        className={i18n.resolvedLanguage === 'en' ? 'text-zinc-100 cursor-pointer' : 'text-zinc-500 cursor-pointer'}
                     >
                         EN
                     </button>

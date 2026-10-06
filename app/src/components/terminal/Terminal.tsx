@@ -69,7 +69,7 @@ export function Terminal({ history, onCommand }: TerminalProps) {
                 key={section.id}
                 type="button"
                 onClick={() => onCommand(section.command)}
-                className="border border-slate-700/50 px-3 py-2 md:py-1 rounded-md text-sm text-slate-400 hover:text-slate-200 hover:border-slate-500 transition-colors"
+                className="border border-slate-700/50 px-3 py-2 md:py-1 rounded-md text-sm text-slate-400 hover:text-slate-200 hover:border-slate-500 transition-colors cursor-pointer"
               >
                 [ {section.command} ]
               </button>
