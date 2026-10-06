@@ -73,3 +73,5 @@ export interface GuestbookMessage {
     message: string;
     created_at: string;
 }
+
+export type SendStatus = 'idle' | 'sending' | 'success' | 'error';

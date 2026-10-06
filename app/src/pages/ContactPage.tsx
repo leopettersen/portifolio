@@ -1,14 +1,12 @@
 import { useState, type FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import { useTranslation } from 'react-i18next';
-
+import type { SendStatus } from '../types';
 import { contacts } from '../data/contacts';
 
 const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-type FormStatus = 'idle' | 'sending' | 'success' | 'error';
 
 interface FormErrors {
     name?: string;
@@ -24,7 +22,7 @@ export function ContactPage() {
     const [message, setMessage] = useState('');
 
     const [errors, setErrors] = useState<FormErrors>({});
-    const [status, setStatus] = useState<FormStatus>('idle');
+    const [status, setStatus] = useState<SendStatus>('idle');
 
     function validate(): FormErrors {
         const newErrors: FormErrors = {};
