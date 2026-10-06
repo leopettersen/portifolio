@@ -62,7 +62,7 @@ export const pt = {
       period: 'Out 2026 - Atual',
       experiencePosition: 'Estágio em Desenvolvimento de Software',
       workModel: 'hybrid',
-      description: 'Minha primeira experiência profissional em Desenvolvimento de Software.',
+      description: 'Atuo como estagiário em desenvolvimento de sistemas na Enterprise Aurora, em um time que segue metodologias ágeis. Trabalho no desenvolvimento de soluções de software com C# no back-end e React com TypeScript no front-end, participando das atividades do time e contribuindo com a evolução dos produtos.',
       skills: ['C#', '.NET', 'React', 'TypeScript']
     },
     {

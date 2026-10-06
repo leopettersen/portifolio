@@ -63,7 +63,7 @@ export const en: typeof pt = {
       period: 'Oct 2026 - Present',
       experiencePosition: 'Software Development Intern',
       workModel: 'hybrid',
-      description: 'My first professional experience in Software Development.',
+      description: 'I work as a systems development intern at Enterprise Aurora, in a team that follows agile methodologies. I develop software solutions using C# on the back-end and React with TypeScript on the front-end, participating in team activities and contributing to the evolution of the products.',
       skills: ['C#', '.NET', 'React', 'TypeScript']
     },
     {
@@ -80,7 +80,7 @@ export const en: typeof pt = {
   },
   projects: [
     {
-      name: 'Hospital System - Gates of Heaven',
+      name: 'Hospital System - "Portões do Céu"',
       date: 'Dec 2026',
       description: 'Web hospital management system developed in Java with Spring Boot, using a REST API and a relational database for managing patients, professionals, appointments, and hospitalizations. The application organizes essential processes, such as scheduling, room control, and medical records.',
       technologies: ['Java', 'SpringBoot', 'Thymeleaf', 'MySQL'],
@@ -95,7 +95,7 @@ export const en: typeof pt = {
       repoLink: 'https://github.com/leopettersen/portifolio'
     },
     {
-      name: 'Machine Operation (OPM)',
+      name: '"Opera Máquinas" (OPM)',
       date: 'Jul 2026',
       description: 'Web interface aimed at optimizing and managing production in industrial environments, centralizing essential tools for the operational routine. The system seeks to organize critical processes, such as login control and role-based user registration.',
       technologies: ['HTML5', 'CSS3', 'JavaScript'],
