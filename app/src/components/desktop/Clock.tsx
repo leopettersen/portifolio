@@ -1,11 +1,22 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import type { Language } from '../../types/';
+
+const localeMap: Record<Language, string> = {
+    pt: 'pt-BR',
+    en: 'en-US',
+};
 
 export function Clock() {
-    const [, setTick] = useState(0);
+    const { i18n } = useTranslation();
+    const language = i18n.resolvedLanguage as Language;
+    const locale = localeMap[language];
+
+    const [now, setNow] = useState(() => new Date());
 
     useEffect(() => {
         const timer = setInterval(() => {
-        setTick(t => t + 1);
+            setNow(new Date());
         }, 1000);
 
         return () => {
@@ -13,17 +24,21 @@ export function Clock() {
         };
     }, []);
 
-    const now = new Date();
+    const weekday = now.toLocaleDateString(locale, { weekday: 'short' }).replace('.', '');
+    const month = now.toLocaleDateString(locale, { month: 'short' }).replace('.', '');
+    const day = now.toLocaleDateString(locale, { day: 'numeric' });
 
-    const dias = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
-    const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
-    const horas = String(now.getHours()).padStart(2, '0');
-    const minutos = String(now.getMinutes()).padStart(2, '0');
-    const timeString = `${dias[now.getDay()]} ${meses[now.getMonth()]} ${now.getDate()} ${horas}:${minutos}`;
+    const time = now.toLocaleTimeString(locale, {
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23',
+    });
+
+    const timeString = `${weekday} ${month} ${day} ${time}`;
 
     return (
-        <span className="font-mono text-sm text-zinc-400">
-        {timeString}
+        <span className="font-mono text-sm text-zinc-400 capitalize">
+            {timeString}
         </span>
     );
 }
