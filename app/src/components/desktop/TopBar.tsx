@@ -22,12 +22,11 @@ export function TopBar() {
                     /
                 </span>
 
-                <span>
-                    Leonardo Pettersen
-                </span>
+                <span className="sm:hidden">L. Pettersen</span>
+                <span className="hidden sm:inline">Leonardo Pettersen</span>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
 
                 <div className="flex gap-2">
 

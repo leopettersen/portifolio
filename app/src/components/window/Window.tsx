@@ -14,7 +14,7 @@ export function Window({ title, children, onClose, onCommand }: WindowProps) {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full md:w-[60%] h-full md:h-auto md:max-h-[calc(100dvh-6rem)] shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 rounded-lg flex flex-col text-zinc-100 font-mono">
+    <div className="w-full md:w-5/6 lg:w-[60%] h-full md:h-auto md:max-h-[calc(100dvh-6rem)] shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 rounded-lg flex flex-col text-zinc-100 font-mono">
       
       <div className="relative flex items-center px-4 py-3 bg-slate-950 border-b border-slate-800/60 rounded-t-lg">
         

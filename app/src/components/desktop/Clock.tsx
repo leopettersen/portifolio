@@ -34,11 +34,10 @@ export function Clock() {
         hourCycle: 'h23',
     });
 
-    const timeString = `${weekday} ${month} ${day} ${time}`;
-
     return (
         <span className="font-mono text-sm text-zinc-400 capitalize">
-            {timeString}
+            <span className="hidden sm:inline">{weekday} {month} {day} </span>
+            <span>{time}</span>
         </span>
     );
 }
