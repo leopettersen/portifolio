@@ -142,6 +142,7 @@ export const pt = {
         sending: 'Enviando...',
         success: 'Mensagem enviada! Obrigado pelo contato.',
         error: 'Não foi possível enviar. Tente novamente.',
+        wait: 'Aguarde alguns segundos antes de enviar outra mensagem.',
     },
   }
 };

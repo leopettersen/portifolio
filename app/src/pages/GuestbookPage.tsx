@@ -14,6 +14,9 @@ const localeMap = {
     en: 'en-US',
 } as const;
 
+const LAST_SENT_KEY = 'guestbook:lastSent';
+const SEND_INTERVAL = 30_000;
+
 export function GuestbookPage() {
     const { t, i18n } = useTranslation();
 
@@ -25,6 +28,7 @@ export function GuestbookPage() {
 
     const [newName, setNewName] = useState('');
     const [newMessage, setNewMessage] = useState('');
+    const [website, setWebsite] = useState('');
 
     const [formErrors, setFormErrors] = useState<FormErrors>({});
     const [status, setStatus] = useState<SendStatus>('idle');
@@ -99,6 +103,34 @@ export function GuestbookPage() {
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
+        if (website.trim()) {
+            setStatus('success');
+
+            setNewName('');
+            setNewMessage('');
+            setWebsite('');
+            setFormErrors({});
+
+            return;
+        }
+
+        const lastSent = localStorage.getItem(LAST_SENT_KEY);
+
+        if (lastSent) {
+            const elapsed = Date.now() - Number(lastSent);
+
+            if (elapsed < SEND_INTERVAL) {
+                setStatus('error');
+
+                setFormErrors({
+                    ...formErrors,
+                    message: t('guestbook.form.wait'),
+                });
+
+                return;
+            }
+        }
+
         const validationErrors = validate();
 
         setFormErrors(validationErrors);
@@ -115,8 +147,11 @@ export function GuestbookPage() {
 
             setMessages((prev) => [createdMessage, ...prev]);
 
+            localStorage.setItem(LAST_SENT_KEY, String(Date.now()));
+
             setNewName('');
             setNewMessage('');
+            setWebsite('');
             setFormErrors({});
             setStatus('success');
         } catch (error) {
@@ -193,6 +228,17 @@ export function GuestbookPage() {
                         </div>
                     </div>
 
+                    <input
+                        type="text"
+                        name="website"
+                        value={website}
+                        onChange={(event) => setWebsite(event.target.value)}
+                        tabIndex={-1}
+                        autoComplete="off"
+                        aria-hidden="true"
+                        className="sr-only"
+                    />
+
                     <p className="text-xs text-slate-500">
                         {t('guestbook.form.privacy')}
                     </p>
@@ -215,7 +261,9 @@ export function GuestbookPage() {
 
                     {status === 'error' && (
                         <p role="status" className="text-sm text-red-400">
-                            {t('guestbook.form.error')}
+                            {formErrors.message === t('guestbook.form.wait')
+                                ? t('guestbook.form.wait')
+                                : t('guestbook.form.error')}
                         </p>
                     )}
 
