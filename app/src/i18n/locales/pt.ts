@@ -128,5 +128,20 @@ export const pt = {
     error: 'Não foi possível carregar as mensagens.',
     empty: 'Seja o primeiro a deixar uma mensagem!',
     loadMore: 'Carregar mais',
+
+    form: {
+        title: 'Deixe uma mensagem',
+        name: 'Nome',
+        namePlaceholder: 'Seu nome',
+        nameError: 'Informe seu nome.',
+        message: 'Mensagem',
+        messagePlaceholder: 'Escreva uma mensagem...',
+        messageError: 'Informe sua mensagem.',
+        privacy: 'Sua mensagem ficará pública.',
+        submit: 'Enviar mensagem',
+        sending: 'Enviando...',
+        success: 'Mensagem enviada! Obrigado pelo contato.',
+        error: 'Não foi possível enviar. Tente novamente.',
+    },
   }
 };

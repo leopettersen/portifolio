@@ -129,5 +129,20 @@ export const en: typeof pt = {
     error: 'Could not load the messages.',
     empty: 'Be the first to leave a message!',
     loadMore: 'Load more',
+
+    form: {
+        title: 'Leave a message',
+        name: 'Name',
+        namePlaceholder: 'Your name',
+        nameError: 'Please enter your name.',
+        message: 'Message',
+        messagePlaceholder: 'Write a message...',
+        messageError: 'Please enter your message.',
+        privacy: 'Your message will be public.',
+        submit: 'Send message',
+        sending: 'Sending...',
+        success: 'Message sent! Thank you for reaching out.',
+        error: 'Could not send your message. Please try again.',
+    },
   }
 };
