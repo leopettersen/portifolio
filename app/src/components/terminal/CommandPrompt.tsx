@@ -7,6 +7,7 @@ export interface CommandPromptProps {
 export function CommandPrompt({ onSubmit }: CommandPromptProps) {
     const [inputValue, setInputValue] = useState('');
     const inputRef = useRef<HTMLInputElement>(null);
+    const [isTouch, setIsTouch] = useState(false);
 
     function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
         if (event.key === 'Enter') {
@@ -15,7 +16,14 @@ export function CommandPrompt({ onSubmit }: CommandPromptProps) {
         }
     }
 
+    function handleClick() {
+        inputRef.current?.focus();
+    }
+
     useEffect(() => {
+        const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+        setIsTouch(isTouchDevice);
+
         const handleGlobalClick = (event: MouseEvent) => {
             const target = event.target;
 
@@ -25,6 +33,10 @@ export function CommandPrompt({ onSubmit }: CommandPromptProps) {
                 if (interactiveElement) {
                     return;
                 }
+            }
+
+            if (isTouchDevice) {
+                return;
             }
 
             inputRef.current?.focus();
@@ -39,11 +51,11 @@ export function CommandPrompt({ onSubmit }: CommandPromptProps) {
 
     return (
 
-        <div className="flex items-center gap-2 cursor-text">
+        <div className="flex items-center gap-2 cursor-text" onClick={handleClick}>
             <span className="text-blue-500">guest@os:~$</span>
             <input
                 onKeyDown={handleKeyDown}
-                autoFocus
+                autoFocus={!isTouch}
                 className="sr-only"
                 type="text" 
                 ref={inputRef}
