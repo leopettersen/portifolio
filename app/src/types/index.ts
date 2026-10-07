@@ -4,6 +4,8 @@ export type Language = 'pt' | 'en';
 
 export type SectionId = 'about' | 'experience' | 'contact' | 'projects' | 'guestbook';
 
+export type WindowId = 'terminal' | SectionId;
+
 export interface Section {
     id: SectionId;
     command: string;
