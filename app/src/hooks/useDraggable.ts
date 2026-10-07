@@ -19,7 +19,8 @@ export function useDraggable(enabled: boolean) {
         if (event.button !== 0) return;
 
         const target = event.target;
-        if (target instanceof Element && target.closest('button')) return;
+        const button = target instanceof Element ? target.closest('button') : null;
+        if (button && button !== event.currentTarget) return;
 
         dragStart.current = {
             pointerId: event.pointerId,
@@ -53,7 +54,7 @@ export function useDraggable(enabled: boolean) {
 
     return {
         position,
-        moved: moved.current,
+        moved,
         onPointerDown,
         onPointerMove,
         onPointerUp,
