@@ -144,5 +144,17 @@ export const pt = {
         error: 'Não foi possível enviar. Tente novamente.',
         wait: 'Aguarde alguns segundos antes de enviar outra mensagem.',
     },
-  }
+  },
+  boot: {
+    lines: [
+        '[kernel] Inicializando sistema...',
+        '[modules] Carregando módulos...',
+        '[filesystem] Montando /home/guest...',
+        '[network] Conectando ao guestbook...',
+        '[session] Preparando ambiente...',
+        '[ui] Carregando interface...',
+        'Sistema pronto. Bem-vindo, guest.',
+    ],
+    skip: 'pressione qualquer tecla ou toque para pular',
+},
 };

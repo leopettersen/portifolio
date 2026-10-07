@@ -145,5 +145,17 @@ export const en: typeof pt = {
         error: 'Could not send your message. Please try again.',
         wait: 'Please wait a few seconds before sending another message.',
     },
-  }
+  },
+  boot: {
+    lines: [
+        '[kernel] Initializing system...',
+        '[modules] Loading modules...',
+        '[filesystem] Mounting /home/guest...',
+        '[network] Connecting to guestbook...',
+        '[session] Preparing environment...',
+        '[ui] Loading interface...',
+        'System ready. Welcome, guest.',
+    ],
+    skip: 'press any key or tap to skip',
+},
 };
