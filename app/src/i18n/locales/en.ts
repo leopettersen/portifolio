@@ -161,5 +161,9 @@ export const en: typeof pt = {
         'System ready. Welcome, guest.',
     ],
     skip: 'press any key or tap to skip',
-},
+  },
+  landingInfo: {
+    title: 'Hello, welcome to my portfolio!',
+    info: 'My portfolio simulates an Operating System. You can drag, maximize, minimize and close windows, and drag icons on the desktop. In the header, it is also possible to translate from English to Portuguese.'
+  }
 };
