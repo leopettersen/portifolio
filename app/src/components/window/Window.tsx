@@ -8,9 +8,10 @@ export interface WindowProps {
     children: ReactNode;
     onClose: () => void;
     onCommand: (command: string) => void;
+    showFooter?: boolean;
 }
 
-export function Window({ title, children, onClose, onCommand }: WindowProps) {
+export function Window({ title, children, onClose, onCommand, showFooter = true }: WindowProps) {
   const { t } = useTranslation();
 
   return (
@@ -41,13 +42,15 @@ export function Window({ title, children, onClose, onCommand }: WindowProps) {
       <div className="flex-1 min-h-0 overflow-y-auto p-4 md:p-8">
         {children}
       </div>
-      <div className="shrink-0 hidden md:flex justify-between items-center px-4 py-3 bg-slate-950 border-t border-slate-800/60 rounded-b-lg">
-        <CommandPrompt onSubmit={onCommand} />
-        
-        <p className="text-xs text-slate-500 hidden sm:block">
-          <Trans i18nKey="window.closeHint" values={{ command: 'close' }} components={{ 1: <span className="text-slate-400" /> }} />
-        </p>
-      </div>
+      {showFooter && (
+        <div className="shrink-0 hidden md:flex justify-between items-center px-4 py-3 bg-slate-950 border-t border-slate-800/60 rounded-b-lg">
+          <CommandPrompt onSubmit={onCommand} />
+
+          <p className="text-xs text-slate-500 hidden sm:block">
+            <Trans i18nKey="window.closeHint" values={{ command: 'close' }} components={{ 1: <span className="text-slate-400" /> }} />
+          </p>
+        </div>
+      )}
     </div>
   );
 }

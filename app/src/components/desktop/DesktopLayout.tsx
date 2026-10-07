@@ -90,7 +90,11 @@ export function DesktopLayout() {
 
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none p-3 md:p-0">
                     {openWindow === 'terminal' && (
-                        <Terminal history={history} onCommand={runCommand} />
+                        <Terminal
+                            history={history}
+                            onCommand={runCommand}
+                            onClose={() => setOpenWindow(null)}
+                        />
                     )}
 
                     {activeSection && (

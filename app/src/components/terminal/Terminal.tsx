@@ -3,13 +3,15 @@ import { useTranslation } from 'react-i18next';
 import type { HistoryEntry } from '../../types';
 import { CommandPrompt } from './CommandPrompt';
 import { sections } from '../../data/sections';
+import { Window } from '../window/Window';
 
 export interface TerminalProps {
   history: HistoryEntry[];
   onCommand: (command: string) => void;
+  onClose: () => void;
 }
 
-export function Terminal({ history, onCommand }: TerminalProps) {
+export function Terminal({ history, onCommand, onClose }: TerminalProps) {
   const { t } = useTranslation();
   const historyRef = useRef<HTMLDivElement>(null);
 
@@ -26,21 +28,8 @@ export function Terminal({ history, onCommand }: TerminalProps) {
   const chipSections = sections.filter(section => section.showChip);
 
   return (
-    <div className="pointer-events-auto w-full md:w-3/4 lg:w-1/2 max-h-[80vh] shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 rounded-lg flex flex-col text-zinc-100 font-mono overflow-hidden">
-
-      <div className="shrink-0 h-12 relative flex items-center px-4 bg-slate-950 border-b border-slate-800/60">
-        <div className="flex gap-2">
-          <div className="w-3 h-3 rounded-full bg-red-500"></div>
-          <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-          <div className="w-3 h-3 rounded-full bg-green-500"></div>
-        </div>
-
-        <span className="absolute left-1/2 -translate-x-1/2 text-sm text-slate-400">
-          terminal — zsh
-        </span>
-      </div>
-
-      <div className="flex flex-col min-h-0 p-4 md:p-8 overflow-hidden">
+    <Window title="terminal — zsh" onClose={onClose} onCommand={onCommand} showFooter={false}>
+      <div className="h-full flex flex-col min-h-0">
 
         <div className="shrink-0">
           <h1 className="text-lg font-bold">
@@ -105,6 +94,6 @@ export function Terminal({ history, onCommand }: TerminalProps) {
         </div>
 
       </div>
-    </div>
+    </Window>
   );
 }
