@@ -17,6 +17,10 @@ export const en: typeof pt = {
   },
   window: {
     back: 'Back',
+    close: 'Close',
+    minimize: 'Minimize',
+    maximize: 'Maximize',
+    restore: 'Restore',
     pageNotFound: 'Page not found.',
     closeHint: 'type <1>{{command}}</1> to close'
   },

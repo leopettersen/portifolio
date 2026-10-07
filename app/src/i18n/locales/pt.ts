@@ -16,6 +16,10 @@ export const pt = {
   },
   window: {
     back: 'Voltar',
+    close: 'Fechar',
+    minimize: 'Minimizar',
+    maximize: 'Maximizar',
+    restore: 'Restaurar',
     pageNotFound: 'Página não encontrada.',
     closeHint: 'digite <1>{{command}}</1> para fechar'
   },

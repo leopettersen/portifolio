@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { ArrowLeft } from 'lucide-react';
 import { CommandPrompt } from '../terminal/CommandPrompt';
@@ -13,9 +13,14 @@ export interface WindowProps {
 
 export function Window({ title, children, onClose, onCommand, showFooter = true }: WindowProps) {
   const { t } = useTranslation();
+  const [isMaximized, setIsMaximized] = useState(false);
 
   return (
-    <div className="pointer-events-auto w-full md:w-5/6 lg:w-[60%] h-full md:h-auto md:max-h-[calc(100dvh-6rem)] shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 rounded-lg flex flex-col text-zinc-100 font-mono">
+    <div className={`pointer-events-auto shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 flex flex-col text-zinc-100 font-mono overflow-hidden ${
+      isMaximized
+        ? 'absolute inset-0 w-full h-full max-h-none rounded-none'
+        : 'w-full md:w-5/6 lg:w-[60%] h-full md:h-auto md:max-h-[calc(100dvh-6rem)] rounded-lg'
+    }`}>
       
       <div className="relative flex items-center px-4 py-3 bg-slate-950 border-b border-slate-800/60 rounded-t-lg">
         
@@ -29,9 +34,13 @@ export function Window({ title, children, onClose, onCommand, showFooter = true 
         </button>
 
         <div className="hidden md:flex gap-2">
-            <button className="w-3 h-3 rounded-full bg-red-500 cursor-pointer" onClick={onClose} aria-label="Fechar"></button>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            <button className="w-3 h-3 rounded-full bg-red-500 cursor-pointer" onClick={onClose} aria-label={t('window.close')} />
+            <button className="w-3 h-3 rounded-full bg-yellow-500 cursor-pointer" onClick={onClose} aria-label={t('window.minimize')} />
+            <button
+              className="w-3 h-3 rounded-full bg-green-500 cursor-pointer"
+              onClick={() => setIsMaximized(prev => !prev)}
+              aria-label={isMaximized ? t('window.restore') : t('window.maximize')}
+            />
         </div>
         
         <span className="absolute left-1/2 -translate-x-1/2 text-sm text-slate-400">
