@@ -2,6 +2,7 @@ import { useState, type ReactNode } from 'react';
 import { useTranslation, Trans } from 'react-i18next';
 import { ArrowLeft } from 'lucide-react';
 import { CommandPrompt } from '../terminal/CommandPrompt';
+import { useDraggable } from '../../hooks/useDraggable';
 
 export interface WindowProps {
     title: string;
@@ -14,15 +15,26 @@ export interface WindowProps {
 export function Window({ title, children, onClose, onCommand, showFooter = true }: WindowProps) {
   const { t } = useTranslation();
   const [isMaximized, setIsMaximized] = useState(false);
+  const dragEnabled = !isMaximized && window.matchMedia('(min-width: 768px)').matches;
+  const { position, onPointerDown, onPointerMove, onPointerUp, onPointerCancel } = useDraggable(dragEnabled);
 
   return (
-    <div className={`pointer-events-auto shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 flex flex-col text-zinc-100 font-mono overflow-hidden ${
-      isMaximized
-        ? 'absolute inset-0 w-full h-full max-h-none rounded-none'
-        : 'w-full md:w-5/6 lg:w-[60%] h-full md:h-auto md:max-h-[calc(100dvh-6rem)] rounded-lg'
-    }`}>
+    <div
+      className={`pointer-events-auto shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 flex flex-col text-zinc-100 font-mono overflow-hidden ${
+        isMaximized
+          ? 'absolute inset-0 w-full h-full max-h-none rounded-none'
+          : 'w-full md:w-5/6 lg:w-[60%] h-full md:h-auto md:max-h-[calc(100dvh-6rem)] rounded-lg'
+      }`}
+      style={isMaximized ? undefined : { transform: `translate(${position.x}px, ${position.y}px)` }}
+    >
       
-      <div className="relative flex items-center px-4 py-3 bg-slate-950 border-b border-slate-800/60 rounded-t-lg">
+      <div
+        className={`relative flex items-center px-4 py-3 bg-slate-950 border-b border-slate-800/60 rounded-t-lg select-none${dragEnabled ? ' cursor-move' : ''}`}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerCancel}
+      >
         
         <button
           onClick={onClose}
