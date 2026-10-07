@@ -22,7 +22,7 @@ export function Window({ title, children, onClose, onCommand, showFooter = true 
   return (
     <div
       ref={rootRef}
-      className={`pointer-events-auto shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 flex flex-col text-zinc-100 font-mono overflow-hidden ${
+      className={`pointer-events-auto shadow-2xl shadow-black/50 bg-slate-900 border border-slate-800/60 flex flex-col text-zinc-100 text-lg font-mono overflow-hidden ${
         isMaximized
           ? 'absolute inset-0 w-full h-full max-h-none rounded-none'
           : 'w-full md:w-5/6 lg:w-[60%] h-full md:h-auto md:max-h-[calc(100dvh-6rem)] rounded-lg'

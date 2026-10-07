@@ -7,11 +7,11 @@ export function TopBar() {
     const { i18n } = useTranslation();
 
     return (
-        <div className="w-full h-8 bg-slate-950 border-b border-slate-800/60 flex items-center justify-between px-4 text-sm text-zinc-400 font-mono">
+        <div className="w-full h-12 bg-slate-950 border-b border-slate-800/60 flex items-center justify-between px-4 text-lg text-zinc-400 font-mono">
 
-            <div className="flex gap-2">
+            <div className="flex items-center gap-2">
                 <i className="text-blue-600">
-                    <SquareTerminal size={16} />
+                    <SquareTerminal size={20} />
                 </i>
 
                 <span className="text-zinc-100 font-bold">
