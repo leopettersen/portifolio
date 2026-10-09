@@ -1,5 +1,5 @@
 import imgPortoesDoCeu from '../../assets/PortoesDoCeu.jpeg';
-import imgPortfolio from '../assets/Boot.jpeg';
+import imgPortfolio from '../../assets/Boot.jpeg';
 import imgOpm from '../../assets/OPM.png';
 
 export const pt = {

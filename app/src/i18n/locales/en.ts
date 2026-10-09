@@ -1,7 +1,7 @@
 import { pt } from './pt';
 import imgPortoesDoCeu from '../../assets/PortoesDoCeu.jpeg';
+import imgPortfolio from '../../assets/Boot.jpeg';
 import imgOpm from '../../assets/OPM.png';
-import imgPortfolio from '../assets/Boot.jpeg';
 
 export const en: typeof pt = {
   terminal: {
