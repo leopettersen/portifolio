@@ -1,4 +1,5 @@
 import imgPortoesDoCeu from '../../assets/PortoesDoCeu.jpeg';
+import imgPortfolio from '../assets/Boot.jpeg';
 import imgOpm from '../../assets/OPM.png';
 
 export const pt = {
@@ -95,7 +96,8 @@ export const pt = {
       date: 'Out 2026',
       description: 'O sistema apresenta minha trajetória, projetos, experiências e formas de contato em uma interface inspirada em um desktop com terminal. A navegação pode ser feita por comandos ou pelos ícones da interface, com suporte a português e inglês, temas claro e escuro e adaptação para computadores e celulares. O objetivo é apresentar meu trabalho de forma rápida, clara e interativa, sem necessidade de cadastro ou login.',
       technologies: ['TypeScript', 'React', 'Supabase', 'Docker'],
-      repoLink: 'https://github.com/leopettersen/portifolio'
+      repoLink: 'https://github.com/leopettersen/portifolio',
+      image: imgPortfolio,
     },
     {
       name: 'Opera Máquinas (OPM)',
