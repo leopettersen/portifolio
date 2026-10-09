@@ -2,6 +2,8 @@
 
 > Portfólio profissional em formato de **sistema operacional no navegador**: o visitante "liga" o computador, abre o terminal e explora as seções digitando comandos ou clicando nos ícones da área de trabalho.
 
+🌐 **Acesse o site: [leonardo-pettersen-portfolio.vercel.app](https://leonardo-pettersen-portfolio.vercel.app/)**
+
 ![React](https://img.shields.io/badge/React-007ec6?style=for-the-badge&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ec6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-007ec6?style=for-the-badge&logo=tailwindcss&logoColor=white)
@@ -10,8 +12,9 @@
 ![Supabase](https://img.shields.io/badge/Supabase-007ec6?style=for-the-badge&logo=supabase&logoColor=white)
 ![EmailJS](https://img.shields.io/badge/EmailJS-007ec6?style=for-the-badge)
 ![Docker](https://img.shields.io/badge/Docker-007ec6?style=for-the-badge&logo=docker&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-007ec6?style=for-the-badge&logo=vercel&logoColor=white)
 
-🚧 **Status:** Sprint 02 concluída (funcionalidades principais). Deploy e ajustes finais na Sprint 03.
+🚀 **Status:** funcionalidades principais concluídas (Sprint 02) e site publicado na Vercel. Ajustes finais da Sprint 03 em andamento.
 
 ---
 
@@ -38,7 +41,7 @@
 
 ## 🔗 Links Úteis
 
-* 🌐 **Site publicado:** _em breve (será adicionado após o deploy)_
+* 🌐 **Site publicado:** [leonardo-pettersen-portfolio.vercel.app](https://leonardo-pettersen-portfolio.vercel.app/)
 * 🎨 **Protótipos no Figma:** [Wireframe Portfólio](https://www.figma.com/design/RagNM3PaJglaInWaZBa3Uk/Wireframe-Portif%C3%B3lio?node-id=0-1&t=LONNOAM8aQx4MY8Z-1)
 * 📦 **Repositório:** [leopettersen/portfolio](https://github.com/leopettersen/portfolio)
 
@@ -58,7 +61,7 @@ O site é aberto a qualquer pessoa, sem cadastro nem login. Por isso o foco est�
 
 ## 🕹️ Como usar o site
 
-1. **Ligue o sistema:** a tela de inicialização aparece sozinha. Para pular, aperte qualquer tecla ou toque na tela.
+1. **Ligue o sistema:** acesse [leonardo-pettersen-portfolio.vercel.app](https://leonardo-pettersen-portfolio.vercel.app/). A tela de inicialização aparece sozinha. Para pular, aperte qualquer tecla ou toque na tela.
 2. **Abra o terminal:** clique no ícone `terminal` da área de trabalho. Os demais ícones aparecem.
 3. **Navegue:** clique nos ícones, nos atalhos do terminal ou digite um comando e aperte Enter.
 4. **Troque o idioma** (PT/EN) na barra superior. A escolha fica salva no navegador.
@@ -212,6 +215,8 @@ flowchart LR
 
 ## 🔧 Instalação e Execução
 
+Para só conhecer o projeto, basta acessar o [site publicado](https://leonardo-pettersen-portfolio.vercel.app/). Para rodá-lo na sua máquina:
+
 ### Pré-requisitos
 
 * **Git**
@@ -331,10 +336,7 @@ Depois, copie a **URL do projeto** e a **chave pública** em *Project Settings* 
 
 ## 🚀 Deploy
 
-> [!NOTE]
-> O deploy está previsto para a Sprint 03. O link do site será adicionado em [Links Úteis](#-links-úteis) assim que estiver no ar.
-
-O site é publicado na **Vercel**, conectada ao repositório do GitHub. Cada atualização na branch principal gera um novo deploy automaticamente.
+O site está publicado na **Vercel** em **[leonardo-pettersen-portfolio.vercel.app](https://leonardo-pettersen-portfolio.vercel.app/)**, conectada ao repositório do GitHub. Cada atualização na branch principal gera um novo deploy automaticamente.
 
 Configuração do projeto na Vercel:
 
@@ -345,7 +347,7 @@ Configuração do projeto na Vercel:
 | Build Command | `npm run build` |
 | Output Directory | `dist` |
 
-As cinco variáveis `VITE_*` (listadas em [Variáveis de Ambiente](#-variáveis-de-ambiente)) devem ser cadastradas em *Project Settings > Environment Variables* antes do build. Como o build executa `tsc -b`, qualquer erro de tipo interrompe o deploy.
+As cinco variáveis `VITE_*` (listadas em [Variáveis de Ambiente](#-variáveis-de-ambiente)) são cadastradas em *Project Settings > Environment Variables*. O Vite grava essas variáveis no código durante o build, então qualquer mudança nelas exige um novo deploy. Como o build executa `tsc -b`, qualquer erro de tipo interrompe o deploy.
 
 ---
 
@@ -356,7 +358,7 @@ portfolio/
 ├── docs/
 │   └── images/
 │       ├── wireframes/              # Protótipos das telas (Figma)
-│       └── screenshots/             # Capturas do site em funcionamento
+│       └── prints/                  # Capturas do site em funcionamento
 ├── app/                             # Aplicação (projeto Vite)
 │   ├── public/                      # Arquivos estáticos servidos como estão
 │   ├── src/
@@ -396,15 +398,15 @@ Os wireframes de média fidelidade foram feitos no [Figma](https://www.figma.com
 
 | Home (desktop) | Sobre Mim |
 | :---: | :---: |
-| ![Wireframe da home](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20Home%20(Dark%20Theme).png) | ![Wireframe do Sobre Mim](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20About.png) |
+| ![Wireframe da home](docs/images/wireframes/Desktop%20-%20Home%20%28Dark%20Theme%29.png) | ![Wireframe do Sobre Mim](docs/images/wireframes/Desktop%20-%20About.png) |
 
 | Projetos | Experiências |
 | :---: | :---: |
-| ![Wireframe dos projetos](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20Projects.png) | ![Wireframe das experiências](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20Experience.png) |
+| ![Wireframe dos projetos](docs/images/wireframes/Desktop%20-%20Projects.png) | ![Wireframe das experiências](docs/images/wireframes/Desktop%20-%20Experience.png) |
 
 | Contato | Mobile |
 | :---: | :---: |
-| ![Wireframe do contato](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20Contact.png) | ![Wireframe da home no celular](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Mobile%20-%20Home%20(Dark%20Theme).png) ![Wireframe dos projetos no celular](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Mobile%20-%20Projects.png) |
+| ![Wireframe do contato](docs/images/wireframes/Desktop%20-%20Contact.png) | ![Wireframe da home no celular](docs/images/wireframes/Mobile%20-%20Home%20%28Dark%20Theme%29.png) ![Wireframe dos projetos no celular](docs/images/wireframes/Mobile%20-%20Projects.png) |
 
 ---
 
@@ -414,25 +416,25 @@ Os wireframes de média fidelidade foram feitos no [Figma](https://www.figma.com
 
 | Tela de boot | Área de trabalho |
 | :---: | :---: |
-| ![Tela de boot](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Boot.jpeg) | ![Área de trabalho](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop.jpeg) |
+| ![Tela de boot](docs/images/prints/Boot.jpeg) | ![Área de trabalho](docs/images/prints/Desktop.jpeg) |
 
 | Terminal | Sobre Mim |
 | :---: | :---: |
-| ![Terminal](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Terminal.jpeg) | ![Sobre Mim](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20About.jpeg) |
+| ![Terminal](docs/images/prints/Desktop%20-%20Terminal.jpeg) | ![Sobre Mim](docs/images/prints/Desktop%20-%20About.jpeg) |
 
 | Projetos | Experiências |
 | :---: | :---: |
-| ![Projetos](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Projects.jpeg) | ![Experiências](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Experience.jpeg) |
+| ![Projetos](docs/images/prints/Desktop%20-%20Projects.jpeg) | ![Experiências](docs/images/prints/Desktop%20-%20Experience.jpeg) |
 
 | Contato | Guestbook |
 | :---: | :---: |
-| ![Contato](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Contact.jpeg) | ![Guestbook](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Guestbook.jpeg) |
+| ![Contato](docs/images/prints/Desktop%20-%20Contact.jpeg) | ![Guestbook](docs/images/prints/Desktop%20-%20Guestbook.jpeg) |
 
 ### 📱 Mobile
 
 | Terminal | Projetos |
 | :---: | :---: |
-| ![Terminal no celular](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Mobiile%20-%20Terminal.jpeg) | ![Projetos no celular](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Mobile%20-%20Projects.jpeg) |
+| ![Terminal no celular](docs/images/prints/Mobiile%20-%20Terminal.jpeg) | ![Projetos no celular](docs/images/prints/Mobile%20-%20Projects.jpeg) |
 
 ---
 
