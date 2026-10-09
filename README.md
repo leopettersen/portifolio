@@ -396,17 +396,15 @@ Os wireframes de média fidelidade foram feitos no [Figma](https://www.figma.com
 
 | Home (desktop) | Sobre Mim |
 | :---: | :---: |
-| ![Wireframe da home](docs/images/wireframes/desktop-home.png) | ![Wireframe do Sobre Mim](docs/images/wireframes/desktop-about.png) |
+| ![Wireframe da home](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20Home%20(Dark%20Theme).png) | ![Wireframe do Sobre Mim](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20About.png) |
 
 | Projetos | Experiências |
 | :---: | :---: |
-| ![Wireframe dos projetos](docs/images/wireframes/desktop-projects.png) | ![Wireframe das experiências](docs/images/wireframes/desktop-experience.png) |
+| ![Wireframe dos projetos](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20Projects.png) | ![Wireframe das experiências](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20Experience.png) |
 
 | Contato | Mobile |
 | :---: | :---: |
-| ![Wireframe do contato](docs/images/wireframes/desktop-contact.png) | ![Wireframe da home no celular](docs/images/wireframes/mobile-home.png) ![Wireframe dos projetos no celular](docs/images/wireframes/mobile-projects.png) |
-
-> O tema claro chegou a ser prototipado, mas não foi implementado: o site usa apenas o tema escuro. O guestbook e a tela de boot surgiram depois dos wireframes e não têm protótipo.
+| ![Wireframe do contato](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20Contact.png) | ![Wireframe da home no celular](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Mobile%20-%20Home%20(Dark%20Theme).png) ![Wireframe dos projetos no celular](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Mobile%20-%20Projects.png) |
 
 ---
 
