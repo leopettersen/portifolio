@@ -414,25 +414,25 @@ Os wireframes de média fidelidade foram feitos no [Figma](https://www.figma.com
 
 | Tela de boot | Área de trabalho |
 | :---: | :---: |
-| ![Tela de boot](docs/images/screenshots/boot.png) | ![Área de trabalho](docs/images/screenshots/desktop.png) |
+| ![Tela de boot](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Boot.jpeg) | ![Área de trabalho](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop.jpeg) |
 
 | Terminal | Sobre Mim |
 | :---: | :---: |
-| ![Terminal](docs/images/screenshots/terminal.png) | ![Sobre Mim](docs/images/screenshots/about.png) |
+| ![Terminal](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Terminal.jpeg) | ![Sobre Mim](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20About.jpeg) |
 
 | Projetos | Experiências |
 | :---: | :---: |
-| ![Projetos](docs/images/screenshots/projects.png) | ![Experiências](docs/images/screenshots/experience.png) |
+| ![Projetos](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Projects.jpeg) | ![Experiências](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Experience.jpeg) |
 
 | Contato | Guestbook |
 | :---: | :---: |
-| ![Contato](docs/images/screenshots/contact.png) | ![Guestbook](docs/images/screenshots/guestbook.png) |
+| ![Contato](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Contact.jpeg) | ![Guestbook](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Guestbook.jpeg) |
 
 ### 📱 Mobile
 
 | Terminal | Projetos |
 | :---: | :---: |
-| ![Terminal no celular](docs/images/screenshots/mobile-terminal.png) | ![Projetos no celular](docs/images/screenshots/mobile-projects.png) |
+| ![Terminal no celular](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Mobiile%20-%20Terminal.jpeg) | ![Projetos no celular](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Mobile%20-%20Projects.jpeg) |
 
 ---
 
