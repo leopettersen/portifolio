@@ -40,7 +40,7 @@
 
 * 🌐 **Site publicado:** _em breve (será adicionado após o deploy)_
 * 🎨 **Protótipos no Figma:** [Wireframe Portfólio](https://www.figma.com/design/RagNM3PaJglaInWaZBa3Uk/Wireframe-Portif%C3%B3lio?node-id=0-1&t=LONNOAM8aQx4MY8Z-1)
-* 📦 **Repositório:** [leopettersen/portifolio](https://github.com/leopettersen/portifolio)
+* 📦 **Repositório:** [leopettersen/portfolio](https://github.com/leopettersen/portfolio)
 
 ---
 
@@ -221,8 +221,8 @@ flowchart LR
 ### 📦 Instalação
 
 ```bash
-git clone https://github.com/leopettersen/portifolio.git
-cd portifolio
+git clone https://github.com/leopettersen/portfolio.git
+cd portfolio
 ```
 
 ### 🔑 Variáveis de Ambiente
@@ -352,7 +352,7 @@ As cinco variáveis `VITE_*` (listadas em [Variáveis de Ambiente](#-variáveis-
 ## 📂 Estrutura de Pastas
 
 ```
-portifolio/
+portfolio/
 ├── docs/
 │   └── images/
 │       ├── wireframes/              # Protótipos das telas (Figma)
@@ -396,15 +396,15 @@ Os wireframes de média fidelidade foram feitos no [Figma](https://www.figma.com
 
 | Home (desktop) | Sobre Mim |
 | :---: | :---: |
-| ![Wireframe da home](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20Home%20(Dark%20Theme).png) | ![Wireframe do Sobre Mim](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20About.png) |
+| ![Wireframe da home](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20Home%20(Dark%20Theme).png) | ![Wireframe do Sobre Mim](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20About.png) |
 
 | Projetos | Experiências |
 | :---: | :---: |
-| ![Wireframe dos projetos](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20Projects.png) | ![Wireframe das experiências](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20Experience.png) |
+| ![Wireframe dos projetos](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20Projects.png) | ![Wireframe das experiências](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20Experience.png) |
 
 | Contato | Mobile |
 | :---: | :---: |
-| ![Wireframe do contato](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Desktop%20-%20Contact.png) | ![Wireframe da home no celular](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Mobile%20-%20Home%20(Dark%20Theme).png) ![Wireframe dos projetos no celular](https://github.com/leopettersen/portifolio/blob/main/docs/images/wireframes/Mobile%20-%20Projects.png) |
+| ![Wireframe do contato](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Desktop%20-%20Contact.png) | ![Wireframe da home no celular](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Mobile%20-%20Home%20(Dark%20Theme).png) ![Wireframe dos projetos no celular](https://github.com/leopettersen/portfolio/blob/main/docs/images/wireframes/Mobile%20-%20Projects.png) |
 
 ---
 
@@ -414,25 +414,25 @@ Os wireframes de média fidelidade foram feitos no [Figma](https://www.figma.com
 
 | Tela de boot | Área de trabalho |
 | :---: | :---: |
-| ![Tela de boot](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Boot.jpeg) | ![Área de trabalho](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop.jpeg) |
+| ![Tela de boot](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Boot.jpeg) | ![Área de trabalho](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop.jpeg) |
 
 | Terminal | Sobre Mim |
 | :---: | :---: |
-| ![Terminal](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Terminal.jpeg) | ![Sobre Mim](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20About.jpeg) |
+| ![Terminal](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Terminal.jpeg) | ![Sobre Mim](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20About.jpeg) |
 
 | Projetos | Experiências |
 | :---: | :---: |
-| ![Projetos](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Projects.jpeg) | ![Experiências](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Experience.jpeg) |
+| ![Projetos](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Projects.jpeg) | ![Experiências](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Experience.jpeg) |
 
 | Contato | Guestbook |
 | :---: | :---: |
-| ![Contato](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Contact.jpeg) | ![Guestbook](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Desktop%20-%20Guestbook.jpeg) |
+| ![Contato](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Contact.jpeg) | ![Guestbook](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Desktop%20-%20Guestbook.jpeg) |
 
 ### 📱 Mobile
 
 | Terminal | Projetos |
 | :---: | :---: |
-| ![Terminal no celular](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Mobiile%20-%20Terminal.jpeg) | ![Projetos no celular](https://github.com/leopettersen/portifolio/blob/main/docs/images/prints/Mobile%20-%20Projects.jpeg) |
+| ![Terminal no celular](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Mobiile%20-%20Terminal.jpeg) | ![Projetos no celular](https://github.com/leopettersen/portfolio/blob/main/docs/images/prints/Mobile%20-%20Projects.jpeg) |
 
 ---
 
